@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>My ip</title>
+    </head>
+    <body>
+        <span id='value'></span>
+        <script>
+            (function(){
+                let socket = new WebSocket("ws://localhost:8083");
+                socket.onmessage = function(event) {
+                    let message = event.data;
+                    document.getElementById('value').textContent = message;
+                }
+            })()
+        </script>
+    </body>
+</html>
